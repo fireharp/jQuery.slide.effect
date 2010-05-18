@@ -1,0 +1,23 @@
+.ui-slide-effect{
+    position:relative;
+    border:1px solid #000; 
+    overflow:hidden;
+    /*height:600px;*/
+}
+.ui-slide-effect .page{
+    float:left;position:absolute;
+    -moz-user-select: none;
+}
+
+.ui-slide-effect #paginator{
+    position:relative;
+    /*top:550px;*/
+    text-align:center;font-size:30pt;font-family: monospace;color:#777;
+    -moz-user-select: none;
+}
+.ui-slide-effect #paginator span{
+    color:#fff;font-size:34pt;
+}
+.ui-slide-effect #msg{
+    border:1px solid #fff;display:none;
+}
