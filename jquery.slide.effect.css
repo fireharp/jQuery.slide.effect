@@ -2,7 +2,6 @@
     position:relative;
     border:1px solid #000; 
     overflow:hidden;
-    /*height:600px;*/
 }
 .ui-slide-effect .page{
     float:left;position:absolute;
@@ -11,7 +10,6 @@
 
 .ui-slide-effect #paginator{
     position:relative;
-    /*top:550px;*/
     text-align:center;font-size:30pt;font-family: monospace;color:#777;
     -moz-user-select: none;
 }
