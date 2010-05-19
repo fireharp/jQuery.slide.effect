@@ -139,22 +139,22 @@
           this.each(function(){
               centerAt=0;
               pages=[];
-
-              $(this).addClass('ui-slide-effect');
-              $(this).append('<div id="left" class="page" unselectable="on"></div>');
-              $(this).append('<div id="center" class="page" unselectable="on"></div>');
-              $(this).append('<div id="right" class="page" unselectable="on"></div>');              
-              $(this).append('<div id="paginator"unselectable="on"></div>');
-
-              $l=$('#left');
-              $c=$('#center');
-              $r=$('#right');
-              $paginator=$('#paginator');
+              var $this =$(this);
+              $this.addClass('ui-slide-effect');
+              $this.append('<div id="ui-slider-left" class="page" unselectable="on"></div>');
+              $this.append('<div id="ui-slider-center" class="page" unselectable="on"></div>');
+              $this.append('<div id="ui-slider-right" class="page" unselectable="on"></div>');
+              $this.append('<div id="ui-slider-paginator"unselectable="on"></div>');
               
-              $(this).css('height',parseInt( settings.height));
+              $l=$this.children('#ui-slider-left');
+              $c=$this.children('#ui-slider-center');
+              $r=$this.children('#ui-slider-right');
+              $paginator=$this.children('#ui-slider-paginator');
+              
+              $this.css('height',parseInt( settings.height));
               $paginator.css('top',parseInt(settings.height-50));
 
-              width= $(this).width();
+              width= $this.width();
               $l.css('left',-width).css('width',width);
               $c.css('left',0).css('width',width);
               $r.css('left',width).css('width',width);
@@ -178,23 +178,22 @@
                 }
                 $('#paginator').html(dotline);
              }
-               $(this).bind("mouseup",fn.mouseup);
-               $(this).bind("mouseleave",fn.mouseup);
-               $(this).bind("mousedown",function(e){
+               $this.bind("mouseup",fn.mouseup);
+               $this.bind("mouseleave",fn.mouseup);
+               $this.bind("mousedown",function(e){
                   x=e.clientX;
                   $l.stop();
                   $c.stop();
                   $r.stop();
                   X=x;
-                  p0=parseInt($c.css('left'));
-                  dx=p0+x-X;
+                  dx=0;
                   dxold=dx;
                   drag=1;
                 });
-                $(this).bind('mousemove',function(e){
+                $this.bind('mousemove',function(e){
                   x=e.clientX;
                   dxold=dx;
-                  dx=p0+x-X;
+                  dx=x-X;
                   v=dx-dxold;
                   if(drag==1){
                     $l.css('left',dx-width);
